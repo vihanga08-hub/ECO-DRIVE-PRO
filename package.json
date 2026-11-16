@@ -1,0 +1,9 @@
+{
+  "name": "ecodrive-pro",
+  "version": "2.0.0",
+  "description": "EcoDrive Pro: zero-dependency smart fleet platform (SQLite, SSE live stream, route optimisation, RBAC, PWA)",
+  "main": "server/index.js",
+  "engines": { "node": ">=22.13" },
+  "scripts": { "start": "node server/index.js", "dev": "node --watch server/index.js", "test": "node --test" },
+  "license": "MIT"
+}

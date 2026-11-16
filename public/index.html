@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoDrive Pro</title>
+  <meta name="description" content="Live fleet tracking, route optimisation and CO2 analytics.">
+  <meta name="theme-color" content="#0f4c4a">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <p id="offline" hidden>Live connection lost. Reconnecting.</p>
+  <main id="login">
+    <form id="loginForm">
+      <h1>EcoDrive Pro</h1>
+      <p>Sign in to see your fleet.</p>
+      <label>Username <input id="u" autocomplete="username" required></label>
+      <label>Password <input id="p" type="password" autocomplete="current-password" required></label>
+      <button>Sign in</button>
+      <p id="err" role="alert"></p>
+      <small>Demo accounts: admin, manager, driver1 (password demo123)</small>
+    </form>
+  </main>
+  <div id="app" hidden>
+    <header><strong>EcoDrive Pro</strong><span id="who"></span><button id="out">Sign out</button></header>
+    <section id="map" aria-label="Live vehicle map"></section>
+    <section id="stats" hidden>
+      <div><b id="k1"></b> km driven</div><div><b id="k2"></b> kg CO₂</div><div><b id="k3"></b> kg CO₂ saved vs diesel</div><div><b id="k4"></b> deliveries done</div>
+      <canvas id="chart" aria-label="CO2 per vehicle"></canvas>
+    </section>
+    <section id="vehicles"><h2>Deliveries</h2><div id="tools"></div><div id="orders"></div></section>
+    <section id="users" hidden><h2>Audit log</h2><div id="audit"></div></section>
+    <div id="toasts" aria-live="polite"></div>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
